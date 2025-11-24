@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: light --default;
+}
+
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+
+  --color-primary: #47a70f;
+  --color-secondary: #fcfffb;
+  --color-base-100: #f3f3f3;
+  --color-base-200: #e7e7e7;
+  --color-base-300: #dcdcdc;
+  --color-secondary-content: #f7fff7;
+}
+
+* {
+  font-family: "Inter", sans-serif;
+}
+
+.active {
+  border-bottom: 3px solid #47a70f;
+  border-radius: 0px;
+}
+
+.Toastify__toast-container {
+  z-index: 999999 !important;
+}
