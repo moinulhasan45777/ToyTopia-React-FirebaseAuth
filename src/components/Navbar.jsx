@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React, { use, useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 import { toast } from "react-toastify";
@@ -15,12 +15,22 @@ const Navbar = () => {
       });
   };
 
+  const [sticky, setSticky] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const triggerPoint = window.innerHeight;
+      setSticky(window.scrollY > triggerPoint);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div
-      className={`navbar items-start md:items-center text-white lg:px-10 px-3 ${
-        useLocation().pathname == "/"
-          ? "absolute bg-transparent"
-          : "static bg-secondary-content"
+      className={`navbar items-start md:items-center text-white lg:px-10 px-3 bg-secondary-content ${
+        sticky ? "sticky top-0 bg-white shadow-md slide-down z-50" : "static"
       }`}
     >
       <div className="navbar-start ">
@@ -28,9 +38,7 @@ const Navbar = () => {
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className={`h-5 w-5 ${
-                useLocation().pathname == "/" ? "text-white" : "text-black"
-              }`}
+              className={`h-5 w-5 `}
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -46,7 +54,7 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex="-1"
-            className="menu menu-sm dropdown-content rounded-box z-1 mt-3 w-52 p-2 shadow bg-secondary"
+            className="menu menu-sm dropdown-content rounded-box z-1 mt-3 w-52 p-2 shadow bg-secondary text-black"
           >
             <li>
               <NavLink to="/" className="text-base">
@@ -64,6 +72,11 @@ const Navbar = () => {
                 All Toys
               </NavLink>
             </li>
+            <li>
+              <NavLink to="/about" className="text-base">
+                About us
+              </NavLink>
+            </li>
           </ul>
         </div>
         <a
@@ -76,19 +89,24 @@ const Navbar = () => {
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul
-          className={`menu menu-horizontal px-1 text-lg font-semibold ${
-            useLocation().pathname == "/" ? "text-white" : "text-black"
-          }`}
+          className={`menu menu-horizontal px-1 text-lg font-semibold text-black`}
         >
           <li>
             <NavLink to="/">Home</NavLink>
           </li>
+          {user && (
+            <li>
+              <NavLink to="/profile">My Profile</NavLink>
+            </li>
+          )}
 
           <li>
-            <NavLink to="/profile">My Profile</NavLink>
+            <NavLink to="/all-toys">All Toys</NavLink>
           </li>
           <li>
-            <NavLink to="/all-toys">All Toys</NavLink>
+            <NavLink to="/about" className="text-base">
+              About us
+            </NavLink>
           </li>
         </ul>
       </div>
