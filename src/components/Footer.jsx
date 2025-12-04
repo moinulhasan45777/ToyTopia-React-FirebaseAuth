@@ -1,17 +1,23 @@
-import { Link } from "lucide-react";
 import React from "react";
+import { Link } from "react-router";
 
 const Footer = () => {
   return (
     <footer className="footer sm:footer-horizontal bg-primary text-white p-10">
       <aside>
         <a className="text-3xl text-white font-bold mb-1">ToyTopia</a>
-        <a className="text-base-100 opacity-90 text-sm hover:text-white transition-all duration-150 ease-in-out hover:opacity-100 leading-1 cursor-pointer">
-          Teams and Conditions
-        </a>
-        <a className="text-base-100 opacity-90 text-sm hover:text-white transition-all duration-150 ease-in-out  hover:opacity-100 cursor-pointer">
-          Privacy Policy
-        </a>
+        <Link
+          to="/about"
+          className="text-base-100 opacity-90 text-sm hover:text-white transition-all duration-150 ease-in-out hover:opacity-100 leading-1 cursor-pointer"
+        >
+          About
+        </Link>
+        <Link
+          to="/all-toys"
+          className="text-base-100 opacity-90 text-sm hover:text-white transition-all duration-150 ease-in-out  hover:opacity-100 cursor-pointer"
+        >
+          All Toys
+        </Link>
       </aside>
       <div>
         <h6 className="footer-title">Social</h6>
