@@ -42,11 +42,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/toy-details/:id",
-        element: (
-          <PrivateRoute>
-            <ToyDetails></ToyDetails>
-          </PrivateRoute>
-        ),
+        element: <ToyDetails></ToyDetails>,
         loader: () => axios("/ToyDetails.json").then((res) => res.data),
       },
       {
