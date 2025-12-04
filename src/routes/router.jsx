@@ -12,6 +12,7 @@ import Loading from "../pages/Loading.jsx";
 import Error from "../pages/Error.jsx";
 import ForgotPassword from "../pages/ForgotPassword.jsx";
 import AllToys from "../pages/AllToys.jsx";
+import About from "../pages/About.jsx";
 
 const router = createBrowserRouter([
   {
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
         path: "/all-toys",
         element: <AllToys></AllToys>,
         loader: () => axios("/ToyDetails.json").then((res) => res.data),
+      },
+      {
+        path: "/about",
+        element: <About></About>,
       },
     ],
 

@@ -5,7 +5,7 @@ const Header = () => {
   const navigate = useNavigate();
   return (
     <header
-      className="hero min-h-screen"
+      className="hero min-h-[70vh]"
       style={{
         backgroundImage: `url(${banner})`,
       }}

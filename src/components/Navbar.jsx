@@ -1,5 +1,5 @@
 import React, { use, useEffect, useState } from "react";
-import { Link, NavLink, useLocation } from "react-router";
+import { Link, NavLink } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 import { toast } from "react-toastify";
 
@@ -79,11 +79,7 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <a
-          className={`text-3xl md:text-4xl  ${
-            useLocation().pathname == "/" ? "text-[#5eec0b]" : "text-primary"
-          } font-bold`}
-        >
+        <a className={`text-3xl md:text-4xl  text-primary font-bold`}>
           ToyTopia
         </a>
       </div>

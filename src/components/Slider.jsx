@@ -9,7 +9,7 @@ import { Navigation, Pagination } from "swiper/modules";
 
 const Slider = ({ data }) => {
   return (
-    <div className="max-w-full mx-auto pb-12 bg-secondary-content px-5 md:px-10 lg:px-20 xl:px-30 2xl:px-50 py-10">
+    <div className=" mx-auto pb-12 bg-secondary-content px-5 md:px-10 lg:px-20 xl:px-30 2xl:px-50 py-10">
       <h2 className="text-3xl text-center md:text-left font-bold text-black mb-7">
         MEGA Sale Spotlight
       </h2>
